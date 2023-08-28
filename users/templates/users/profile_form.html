@@ -5,7 +5,7 @@
 <h1> Edit Account </h1>
 <form method="POST" action="{% url 'edit-account' %}">
     {% csrf_token %}
-    {{form}}
+    {{form.as_p}}
     <input type="submit" value="Submit"/>
 
 </form>
