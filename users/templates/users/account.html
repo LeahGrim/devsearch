@@ -9,7 +9,7 @@
           <div class="card text-center">
             <div class="card__body dev">
               <a class="tag tag--pill tag--main settings__btn" href="{% url 'edit-account' %}"><i class="im im-edit"></i> Edit</a>
-              <img class="avatar avatar--xl dev__avatar" src="https://avatars.githubusercontent.com/u/33843378" />
+              <img class="avatar avatar--xl dev__avatar" src="{{ profile.profile_image.url }}" />
               <h2 class="dev__name"> {{profile.name}}</h2>
               <p class="dev__title"> {{profile.short_intro}}</p>
               <p class="dev__location">Based in {{profile.location}}</p>
@@ -22,12 +22,7 @@
           <div class="devInfo">
             <h3 class="devInfo__title">About Me</h3>
             <p class="devInfo__about">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex illum ipsum iusto consequatur. Totam,
-              dolorum fugiat, debitis facere illo nostrum nesciunt maxime, deserunt enim voluptatibus modi natus velit
-              voluptatum. Dicta eritatis exercitationem ut quos a placeat obcaecati? Architecto illum!
-              <br />
-              Amet consectetur adipisicing elit. Veritatis exercitationem ut quos a placeat obcaecati? Architecto
-              illum, atque delectus nemo dolorem inventore ab facilis? Dolor placeat vel delectus ipsam ullam.
+              {{profile.bio}}
             </p>
           </div>
           <div class="settings">
