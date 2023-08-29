@@ -71,6 +71,10 @@
           <li><a href="?page={{page}}" class="btn page-link"> {{page}} </a></li>
         {% endif %}
         {% endfor %}  
+        {% if projects.has_next %}
+        <li><a href="?page={{projects.next_page_number}}" class="btn page-link "> > </a></li>
+
+        {% endif %}
       </ul>  
     </div>
  
