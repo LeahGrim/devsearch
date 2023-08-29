@@ -1,11 +1,22 @@
 {% extends "main.html" %}
 
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    <p> Are you certain that you want to delete " {{object}} "? </p> 
-   <a href="{% url 'projects' %}"> Back </a>
-    <br>
-    <input type="submit" value="Confirm" /> 
-</form>
-{% endblock %}
+
+<main class="formPage my-xl">
+    <div class="content-box">
+        <div class="formWrapper">
+            <br>
+
+            <form class="form" method="POST" action="">
+                {% csrf_token %}
+                <p> Are you certain that you want to delete " {{object}} "? </p> 
+               <a href="{% url 'account' %}" class="btn btn--sub btn--lg  my-md"> Back </a>
+
+             
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Confirm" />
+            </form>
+        </div>
+    </div>
+</main> 
+
+{% endblock content %}
