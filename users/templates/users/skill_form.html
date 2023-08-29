@@ -6,7 +6,9 @@
     <main class="formPage my-xl">
         <div class="content-box">
             <div class="formWrapper">
-                <a class="backButton" href="{% url 'account' %}"><i class="im im-angle-left"></i></a>
+                <h3 style="text-align: center;"> Add New Skill Here: </h3>
+                <a class="backButton .skill" href="{% url 'account' %}"><b style="font-size: larger;"> < </b></a>
+
                 <br>
 
                 <form class="form" method="POST" action="">
@@ -14,11 +16,10 @@
                     {% for field in form %}
                     <!-- Input:Text -->
                     <div class="form__field">
-                        <label for="formInput#text">{{field.label}}:</label>
+                        <label for="formInput#text"> Skill {{field.label}}:</label>
                         {{field}}
                     </div>
                     {% endfor %}
-                    <!-- Input:Text -->
             
                     <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
                 </form>
