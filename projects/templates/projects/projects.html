@@ -58,6 +58,10 @@
     </section>
     <div class="pagination">
       <ul class="container">
+        {% if projects.has_previous %}
+        <li><a href="?page={{projects.previous_page_number}}" class="btn page-link ">  < </a></li>
+
+        {% endif %}
         {% for page in paginator.page_range %}
 
         {% if page == projects.number %}
