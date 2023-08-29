@@ -10,7 +10,7 @@
             <form class="form" method="POST" action="">
                 {% csrf_token %}
                 <p> Are you certain that you want to delete " {{object}} "? </p> 
-               <a href="{% url 'account' %}" class="btn btn--sub btn--lg  my-md"> Cancel </a>
+               <a href="{{request.GET.next}}" class="btn btn--sub btn--lg  my-md"> Cancel </a>
 
                 <input class="btn btn--sub btn--lg  my-md" type="submit" value="Confirm" />
             </form>
