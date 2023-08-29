@@ -85,7 +85,7 @@ def userAccount(request):
 def editAccount(request):
     profile = request.user.profile 
     form = ProfileForm(instance=profile)
-    
+
     if request.method == "POST":
         form= ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
@@ -95,3 +95,9 @@ def editAccount(request):
 
     context = {'form': form}
     return render(request, 'users/profile_form.html', context)
+
+@login_required(login_url='login')
+def createSkill(request):
+    
+    context={}
+    return render(request, 'users/skill_form.html', context)
