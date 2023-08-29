@@ -41,7 +41,11 @@
               </td>
               <td class="settings__tableActions">
                 <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-skill' skill.id %}"><i class="im im-edit"></i> Edit</a>
-                  Delete</a>
+             
+              </td>
+              <td class="settings__tableActions">
+                <a class="tag tag--pill tag--main settings__btn" href="{% url 'delete-skill' skill.id %}"><i class="im im-edit"></i> Delete</a>
+           
               </td>
             </tr>
             {% endfor %}
