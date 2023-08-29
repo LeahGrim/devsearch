@@ -21,12 +21,7 @@
               <div class="devInfo">
                 <h3 class="devInfo__title">About Me</h3>
                 <p class="devInfo__about">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex illum ipsum iusto consequatur. Totam,
-                  dolorum fugiat, debitis facere illo nostrum nesciunt maxime, deserunt enim voluptatibus modi natus velit
-                  voluptatum. Dicta eritatis exercitationem ut quos a placeat obcaecati? Architecto illum!
-                  <br />
-                  Amet consectetur adipisicing elit. Veritatis exercitationem ut quos a placeat obcaecati? Architecto
-                  illum, atque delectus nemo dolorem inventore ab facilis? Dolor placeat vel delectus ipsam ullam.
+                  {{profile.bio}}
                 </p>
               </div>
               <div class="devInfo">
@@ -56,7 +51,7 @@
                   <div class="column">
                     <div class="card project">
                       <a href="{% url 'project' project.id %}" class="project">
-                        <img class="project__thumbnail" src="images/project-b.png" alt="project thumbnail" />
+                        <img class="project__thumbnail" src="{{ project.featured_image.url }}" alt="project thumbnail" />
                         <div class="card__body">
                           <h3 class="project__title">{{project.title}}</h3>
                           <p><a class="project__author" href="{% url 'user-profile' project.owner.id %}">{{project.owner.name}}</a></p>
