@@ -61,6 +61,7 @@ def registerUser(request):
 
 
 def profiles(request):
+    search_query= ''
     profiles = Profile.objects.all()
     context = {'profiles': profiles}
     return render(request, 'users/profiles.html', context)
