@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import Project, Tag
 from .forms import ProjectForm, ReviewForm
@@ -35,6 +36,8 @@ def project (request, pk):
         review.project = projectObj 
         review.owner = request.user.profile
         review.save()
+        #update project vote count
+        messages.success(request, 'Your Review was successfully submitted!')
 
     return render(request, 'projects/single-project.html',{'project': projectObj, 'form': form})
 
