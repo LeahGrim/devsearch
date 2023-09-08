@@ -50,13 +50,14 @@
             </h5>
 
             <form class="form" action="{% url 'project' project.id %}" method="POST">
-             {% for field in form %}
-              <div class="form__field">
-                <label for="formInput#textarea">{{field.label}} </label>
+             {% csrf_token %}
+              {% for field in form %}
+              <div class="form__field"> 
+                <label for="formInput#textarea"> {{field.label}} </label>
                 {{field}}
               </div>
               {% endfor %}
-              <input class="btn btn--sub btn--lg" type="submit" value="Comments" />
+              <input class="btn btn--sub btn--lg" type="submit" value="Add Comment" />
             </form>
             <div class="commentList">
               {% for review in project.review_set.all %}

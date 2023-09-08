@@ -38,8 +38,9 @@ def project (request, pk):
         review.save()
         #update project vote count
         messages.success(request, 'Your Review was successfully submitted!')
+        return redirect('project', pk=projectObj.id)
 
-    return render(request, 'projects/single-project.html',{'project': projectObj, 'form': form})
+    return render(request, 'projects/single-project.html', {'project': projectObj, 'form': form})
 
 @login_required(login_url= "login")
 def createProject(request):
