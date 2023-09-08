@@ -28,6 +28,14 @@ def projects(request):
 def project (request, pk):
     projectObj = Project.objects.get(id=pk)
     form = ReviewForm()
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        review = form.save(commit=False)
+        review.project = projectObj 
+        review.owner = request.user.profile
+        review.save()
+
     return render(request, 'projects/single-project.html',{'project': projectObj, 'form': form})
 
 @login_required(login_url= "login")
