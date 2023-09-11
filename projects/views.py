@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from .models import Project, Tag
+from .models import Project
 from .forms import ProjectForm, ReviewForm
 from .utils import searchProjects
 
@@ -23,7 +24,7 @@ def projects(request):
         projects = paginator.page(page)
 
 
-    context = {'projects': projects, 'search_query':search_query, 'paginator': paginator }
+    context = {'projects': projects, 'search_query': search_query, 'paginator': paginator }
     return render(request, 'projects/projects.html', context )
 
 def project (request, pk):
@@ -43,7 +44,7 @@ def project (request, pk):
         messages.success(request, 'Your Review was successfully submitted!')
         return redirect('project', pk=projectObj.id)
 
-    return render(request, 'projects/single-project.html', {'project': projectObj, 'form': form})
+    return render(request, 'projects/single-project.html', {'form': form, 'project': projectObj})
 
 @login_required(login_url= "login")
 def createProject(request):

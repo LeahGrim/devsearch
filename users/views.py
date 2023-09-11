@@ -56,6 +56,7 @@ def registerUser(request):
 
             login(request, user)
             return redirect('profiles')
+        
         else:
             messages.success(request, 'An error occurred during registration')
 
